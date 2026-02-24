@@ -29,6 +29,7 @@ import java.util.TimeZone;
 import java.util.UUID;
 
 import jakarta.persistence.TemporalType;
+import org.hibernate.type.raw.PhoneNumber;
 import org.hibernate.type.spi.TypeConfiguration;
 
 /**
@@ -701,6 +702,12 @@ public final class StandardBasicTypes {
 			SqlTypes.VARCHAR
 	);
 
+	public static final BasicTypeReference<PhoneNumber> PHONE_NUMBER = new BasicTypeReference<>(
+			"phone_number",
+			PhoneNumber.class,
+			SqlTypes.VARCHAR
+	);
+
 	/**
 	 * The standard Hibernate type for mapping {@link ZoneOffset} to JDBC {@link org.hibernate.type.SqlTypes#VARCHAR VARCHAR}.
 	 */
@@ -1318,6 +1325,13 @@ public final class StandardBasicTypes {
 				"org.hibernate.type.CurrencyType",
 				basicTypeRegistry,
 				"currency", Currency.class.getSimpleName(), Currency.class.getName()
+		);
+
+		handle(
+				PHONE_NUMBER,
+				"org.hibernate.type.PhoneNumberType",
+				basicTypeRegistry,
+				"phone_number", PhoneNumber.class.getSimpleName(), PhoneNumber.class.getName()
 		);
 
 		handle(
