@@ -54,6 +54,7 @@ import org.hibernate.type.descriptor.java.LongJavaType;
 import org.hibernate.type.descriptor.java.NClobJavaType;
 import org.hibernate.type.descriptor.java.OffsetDateTimeJavaType;
 import org.hibernate.type.descriptor.java.OffsetTimeJavaType;
+import org.hibernate.type.descriptor.java.PhoneNumberJavaType;
 import org.hibernate.type.descriptor.java.PrimitiveByteArrayJavaType;
 import org.hibernate.type.descriptor.java.PrimitiveCharacterArrayJavaType;
 import org.hibernate.type.descriptor.java.ShortJavaType;
@@ -149,6 +150,7 @@ public class JavaTypeBaseline {
 		target.addBaselineDescriptor( UrlJavaType.INSTANCE );
 		target.addBaselineDescriptor( UUIDJavaType.INSTANCE );
 		target.addBaselineDescriptor( InetAddressJavaType.INSTANCE );
+		target.addBaselineDescriptor( PhoneNumberJavaType.INSTANCE );
 
 		registerCollectionTypes( target );
 
